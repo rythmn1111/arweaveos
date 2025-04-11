@@ -1,0 +1,400 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+  
+:root {
+  --main: #FFDC58;
+  --overlay: rgba(0, 0, 0, 0.8); /* background color overlay for alert dialogs, modals, etc. */
+  --bg: #FEF2E8;
+  --bw: #fff; /* white and secondary black e.g. utility class variant would be: bg-[#fff] dark:bg-[#212121] */
+  --blank: #000; /* blank black and white */
+  --border: #000;
+  --text: #000;
+  --mtext: #000; /* text that is placed on background with main color e.g. text color of default button */
+  --ring: #000;
+  --ring-offset: #fff;
+  --border-radius: 5px;
+  --box-shadow-x: 4px;
+  --box-shadow-y: 4px;
+  --reverse-box-shadow-x: -4px;
+  --reverse-box-shadow-y: -4px;
+  --base-font-weight: 500;
+  --heading-font-weight: 700;
+  --shadow: var(--box-shadow-x) var(--box-shadow-y) 0px 0px var(--border);
+  
+  /* Preserve theme variables */
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --input: oklch(0.922 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --bg: #374151;
+  --bw: #212121;
+  --blank: #fff;
+  --border: #000;
+  --text: #e6e6e6;
+  --mtext: #000;
+  --ring: #fff;
+  --ring-offset: #000;
+  --shadow: var(--box-shadow-x) var(--box-shadow-y) 0px 0px var(--border);
+  
+  /* Dark theme variables */
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* Tailwind layer directive compatible with v3 */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-bg text-text;
+  }
+}
+
+/* Keep the rest of your CSS styling as is */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.web3 {
+  width: 100%;
+  height: 100%;
+}
+
+.os-div {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+}
+
+.os-div p {
+  margin: 0;
+  padding: 0;
+}
+
+.winbox {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  display: flex;
+  height: 400px;
+  width: 400px;
+  flex-direction: column;
+}
+
+.wb-title {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.wb-title h2 {
+  margin: 0%;
+  display: inline-block;
+  font-size: medium;
+}
+
+.wb-drag {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+}
+
+.wb-control {
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+.wb-min, .wb-full, .wb-close {
+  cursor: pointer;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.wb-body {
+  background-color: #FAF4E6; 
+  border: 5px solid black;
+  flex: 1;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 
+    15px 15px 0 rgba(0, 0, 0, 0.6),
+    15px 15px 0 rgba(0, 0, 0, 0.6); 
+  overflow: scroll;
+}
+
+.wb-body::-webkit-scrollbar {
+  border-radius: 20px;
+}
+
+.wb-body::-webkit-scrollbar-thumb {
+  background-color: rgb(250, 213, 154);
+  border-radius: 20px;
+}
+
+.wb-body::-webkit-scrollbar-corner {
+  border-radius: 30px;
+}
+
+.min-icon:hover {
+  background-color: rgb(248, 248, 131);
+  border-radius: 20px;
+}
+
+.max-icon:hover {
+  background-color: rgb(237, 193, 122);
+  border-radius: 20px;
+}
+
+.close-icon:hover {
+  background-color: rgb(249, 183, 177);
+  border-radius: 20px;
+}
+
+.wb-header {
+  background-color: #FAF4E6;
+  border: 5px solid black;
+  border-bottom: 0;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: 
+    15px 15px 0 rgba(0, 0, 0, 0.6),
+    15px 15px 0 rgba(0, 0, 0, 0.6); 
+}
+
+.wb-control {
+  display: flex;
+  align-items: center;
+}
+
+.wb-drag {
+  flex: 1;
+  cursor: move;
+}
+
+.wb-right, .wb-left, .wb-top, .wb-bottom,
+.wb-top-left, .wb-top-right, .wb-bottom-left, .wb-bottom-right {
+  position: absolute;
+  background: transparent;
+  z-index: 9999;
+}
+
+.wb-right, .wb-left {
+  width: 6px;
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.wb-top, .wb-bottom {
+  height: 6px;
+  width: 100%;
+  cursor: ns-resize;
+}
+
+.wb-top {
+  cursor: pointer;
+}
+
+.wb-right { right: 0; }
+.wb-left { left: 0; }
+.wb-top { top: 0; }
+.wb-bottom { bottom: 0; }
+
+.wb-top-left, .wb-top-right, .wb-bottom-left, .wb-bottom-right {
+  width: 6px;
+  height: 6px;
+}
+
+.wb-top-left { top: 0; left: 0; cursor: nwse-resize; }
+.wb-top-right { top: 0; right: 0; cursor: nesw-resize; }
+.wb-bottom-left { bottom: 0; left: 0; cursor: nesw-resize; }
+.wb-bottom-right { bottom: 0; right: 0; cursor: nwse-resize; }
+
+.main-desktop-container {
+  display: flex;
+  flex-direction: column;
+  background-image: url('/wallpaper.png');
+  background-position: center center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.playground {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+}
+
+.task-bar {
+  height: 50px;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.9);
+  margin: 0;
+  opacity: 0.7;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+}
+
+.time-div {
+  color: white;
+}
+
+.task-bar .app-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 150px;
+  flex: 1;
+}
+
+.app-directory-container {
+  position: relative;
+  opacity: 1;
+}
+
+.app-directory-menu {
+  opacity: 1;
+  position: absolute;
+  bottom: 150%;
+  background-color: #FAF4E6;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  height: 150px;
+  min-height: 250px;
+  min-width: 250px;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  overflow: scroll;
+}
+
+.app-directory-menu::-webkit-scrollbar {
+  border-radius: 20px;
+}
+
+.app-directory-menu::-webkit-scrollbar-thumb {
+  background-color: rgb(250, 213, 154);
+  border-radius: 20px;
+}
+
+.app-directory-menu::-webkit-scrollbar-corner {
+  border-radius: 30px;
+}
+
+.taskbar-elements:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+.taskbar-elements {
+  margin-right: 20px;
+}
+
+.app-directory-active {
+  height: 100px;
+  width: 100px;
+  background-color: rgb(0, 0, 0);
+}
+
+.menu {
+  font-size: small;
+  margin-left: 10px;
+}
+
+.menu:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.menu:hover .menu-svg {
+  filter: invert(1) brightness(100%);
+}
+
+.textArea {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  background-color: transparent;
+  border-style: none; 
+  border-color: transparent; 
+  overflow: visible;
+  resize: none;
+  height: 96%;
+  width: 97%;
+  padding: 0;
+  font-size: large;
+  font-family: inherit;
+}
+
+.textArea:focus {
+  outline: none;
+}

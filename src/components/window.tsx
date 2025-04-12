@@ -35,7 +35,7 @@ export default function WindowStructure({children, windowId}: {children: ReactNo
     const [isMaximize, setMaximize] = useState(false);
     const [position, setPosition] = useState({ x: 150, y: 150 });
     const [width, setWidth] = useState(600);
-    const [height, setHeight] = useState(400);
+    const [height, setHeight] = useState(500);
     const [left, setLeft] = useState("");
     useEffect(()=>{
         const resizable = ref.current as HTMLElement;

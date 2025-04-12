@@ -5,6 +5,9 @@ import TestingApp from "@/apps/testingapp/testingapp";
 // import AOMessenger from "@/apps/temp/temp";
 import AOVoiceRecorder from "@/apps/temp/temp";
 import NotesApp from "@/apps/temp/temp2";
+import DetailsApp from "@/apps/details/details_app";
+import DeployApp from "@/apps/deploy/deploy_app";
+
 export interface AppDetails {
     id: number;
   tempId: number;
@@ -48,5 +51,23 @@ export const apps: AppCollection = {
     shortWindow: false,
     isHidden: false,
     appCode: NotesApp
+  },
+  4: {
+    tempId: 4,
+    name: "details.txt",
+    icon: "/aoicon.png",
+    multipleWindowsAllowed: false,
+    shortWindow: false,
+    isHidden: false,
+    appCode: DetailsApp
+  },
+  5: {
+    tempId: 5,
+    name: "deploy.txt",
+    icon: "/deployao.png", // You'll need to add this icon to your public folder
+    multipleWindowsAllowed: false,
+    shortWindow: false,
+    isHidden: false,
+    appCode: DeployApp
   }
 };
